@@ -1,0 +1,65 @@
+
+
+<html>
+        <div background = "black" >
+                <h1>Sopra<img class = "logo" [src] = "'https://media.glassdoor.com/sqll/1187250/sopra-steria-recruitment-squarelogo-1474616452761.png'">
+                    Steria</h1></div>
+<body>
+        <div class = "h1" align = "center"> HISTORY</div>
+    
+
+
+
+          
+    <div class = "row" >
+    <div *ngFor = "let urlss of urrl">
+        
+        
+            
+        <div class = "column">
+            <div class = "content">
+                    <img [src] = urlss.url alt = "image" *ngIf = "!urlss.show"/>
+                    <agm-map *ngIf = "urlss.show" [latitude]= urlss.lati [longitude]= urlss.longi [zoom] = "15">
+                            <agm-marker [latitude]= urlss.lati [longitude]= urlss.longi></agm-marker>        
+                          </agm-map>
+                        <h4>{{urlss.description}}</h4>  
+                        <h4 class = "right">{{urlss.date}}</h4>       
+                
+                
+
+                
+                        <button class = "btnn" *ngIf = "!urlss.show" (click) = "showMap(urlss.no)">See location</button>
+                        
+                
+                        <button class = "btnn" *ngIf = "urlss.show" (click) = "showMap(urlss.no)">hide location</button>
+
+                       
+           
+                        
+            </div>
+
+        </div>
+
+    </div>
+    </div>  
+
+    
+
+        
+
+        
+
+
+    
+    
+    
+
+        
+        
+    
+    
+    
+    
+</body>
+
+</html>

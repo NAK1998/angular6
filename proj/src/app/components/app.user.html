@@ -1,0 +1,169 @@
+<html>
+        <div background = "black" >
+                <h1 >Sopra<img class = "logo" [src] = "'https://media.glassdoor.com/sqll/1187250/sopra-steria-recruitment-squarelogo-1474616452761.png'">
+                    Steria</h1></div>
+<body>
+    
+
+
+<h2>Select category to filter:<span class = "history2">{{title}}</span></h2>
+
+<div id="myBtnContainer">
+        <button class="btn" (click) = "check('all')"> Show all</button>
+        <button class="btn" (click) = "check('sport')"> Sport</button>
+        <button class="btn" (click) = "check('music')"> Music</button>
+        <button class="btn" (click) = "check('art')"> Art</button>
+        <button class = "btnright" (click) = "back()">Logout</button>
+        <button class = "btnright" (click) = "checkHistory()" >See history</button>
+        
+      </div>
+          
+    <div class = "row" *ngIf = "showMusic">
+    <div *ngFor = "let urlss of urrl">
+        <div *ngIf = "urlss.type == 'music'">
+        
+            
+        <div class = "column">
+            <div class = "content">
+                    <img [src] = urlss.url alt = "image" *ngIf = "!urlss.show"/>
+                    <agm-map *ngIf = "urlss.show" [latitude]= urlss.lati [longitude]= urlss.longi [zoom] = "15">
+                            <agm-marker [latitude]= urlss.lati [longitude]= urlss.longi></agm-marker>        
+                          </agm-map>
+                       <h4>{{urlss.description}}</h4>
+                       <h4 class = "right">{{urlss.date}}</h4>     
+                
+                
+
+                
+                        <button class = "btnn" *ngIf = "!urlss.show" (click) = "showMap(urlss.no)">See location</button>
+                        
+                
+                        <button class = "btnn" *ngIf = "urlss.show" (click) = "showMap(urlss.no)">hide location</button>
+
+                        <button class = "btnn" (click) = "addToHistory(urlss.no,urlss.date,urlss.description, urlss.lati, urlss.longi,urlss.type, urlss.url)">Visited!</button>
+           
+                        </div>
+            </div>
+
+        </div>
+
+    </div>
+    </div>  
+
+    <div class = "row" *ngIf = "showArt">
+            <div *ngFor = "let urlss of urrl">
+                <div *ngIf = "urlss.type == 'art'">
+                
+                    
+                <div class = "column">
+                    <div class = "content">
+                            <img [src] = urlss.url alt = "image" *ngIf = "!urlss.show"/>
+                            <agm-map *ngIf = "urlss.show" [latitude]= urlss.lati [longitude]= urlss.longi [zoom] = "15">
+                                    <agm-marker [latitude]= urlss.lati [longitude]= urlss.longi></agm-marker>        
+                                  </agm-map>
+                                <h4>{{urlss.description}}</h4>
+                                <h4 class = "right">{{urlss.date}}</h4>       
+                        
+                        
+        
+                        
+                                <button class = "btnn" *ngIf = "!urlss.show" (click) = "showMap(urlss.no)">See location</button>
+                                
+                        
+                                <button class = "btnn" *ngIf = "urlss.show" (click) = "showMap(urlss.no)">hide location</button>
+        
+                                <button class = "btnn" (click) = "addToHistory(urlss.no,urlss.date,urlss.description, urlss.lati, urlss.longi,urlss.type, urlss.url)">Visited!</button>
+                   
+                                </div>
+                    </div>
+        
+                </div>
+        
+            </div>
+            </div>
+
+
+
+            <div class = "row" *ngIf = "showSport">
+                    <div *ngFor = "let urlss of urrl">
+                        <div *ngIf = "urlss.type == 'sport'">
+                        
+                            
+                        <div class = "column">
+                            <div class = "content">
+                                    <img [src] = urlss.url alt = "image" *ngIf = "!urlss.show"/>
+                                    <agm-map *ngIf = "urlss.show" [latitude]= urlss.lati [longitude]= urlss.longi [zoom] = "15">
+                                            <agm-marker [latitude]= urlss.lati [longitude]= urlss.longi></agm-marker>        
+                                          </agm-map>
+                                        <h4>{{urlss.description}}</h4>  
+                                        <h4 class = "right">{{urlss.date}}</h4>     
+                                
+                                
+                
+                                
+                                        <button class = "btnn" *ngIf = "!urlss.show" (click) = "showMap(urlss.no)">See location</button>
+                                        
+                                
+                                        <button class = "btnn" *ngIf = "urlss.show" (click) = "showMap(urlss.no)">hide location</button>
+                
+                                        <button class = "btnn" (click) = "addToHistory(urlss.no,urlss.date,urlss.description, urlss.lati, urlss.longi,urlss.type, urlss.url)">Visited!</button>
+                           
+                                        </div>
+                            </div>
+                
+                        </div>
+                
+                    </div>
+                    </div>
+
+
+                    <div class = "row" *ngIf = "showAll">
+                        <div *ngFor = "let urlss of urrl">
+                            
+                            
+                                
+                            <div class = "column">
+                                <div class = "content">
+                                        <img [src] = urlss.url alt = "image" *ngIf = "!urlss.show"/>
+                                        <agm-map *ngIf = "urlss.show" [latitude]= urlss.lati [longitude]= urlss.longi [zoom] = "15">
+                                                <agm-marker [latitude]= urlss.lati [longitude]= urlss.longi></agm-marker>        
+                                              </agm-map>
+                                            <h4>{{urlss.description}}</h4>    
+                                            <h4 class = "right">{{urlss.date}}</h4>   
+                                    
+                                    
+                    
+                                    
+                                            <button class = "btnn" *ngIf = "!urlss.show" (click) = "showMap(urlss.no)">See location</button>
+                                            
+                                    
+                                            <button class = "btnn" *ngIf = "urlss.show" (click) = "showMap(urlss.no)">hide location</button>
+                    
+                                            <button class = "btnn" (click) = "addToHistory(urlss.no,urlss.date,urlss.description, urlss.lati, urlss.longi,urlss.type, urlss.url)">Visited!</button>
+                               
+                                            </div>
+                                
+                    
+                            </div>
+                    
+                        </div>
+                        </div>
+
+        
+
+        
+
+
+    
+    
+    
+
+        
+        
+    
+    
+    
+    
+</body>
+
+</html>

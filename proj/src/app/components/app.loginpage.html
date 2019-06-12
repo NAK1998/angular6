@@ -1,0 +1,41 @@
+<body>
+    <br>
+    <br>
+<div class="login-page">
+    <div class="form">
+
+        
+      <form class="register-form" name = "form1" *ngIf = "!registered">
+        
+        <input type="text" placeholder="name" #n1/>
+        <input type="password" placeholder="password" #p1/>
+        <input type="password" placeholder="re-enter password" #p2/>
+        <div *ngIf = "!equalPassword">Passwords do not match</div>
+        <div *ngIf = "emptyName">Please enter a name</div>
+        <div *ngIf = "emptyPassword">Please enter password</div>
+        
+        <button (click) = "validateFields(n1.value,p1.value,p2.value)">create</button>
+        <div *ngIf = "newRegister">Successfully registered!!!! Your username is: {{newRegisters}}</div>
+        <p class="message">Already registered? <a class = "register" (click) = "checkRegistered()">Sign In</a></p>
+      </form>
+      <form class="login-form" *ngIf = "registered">
+        <input type = "number" placeholder = "username" #username/>
+        <input type="password" placeholder="password" #password/>
+        <button (click) = "validate(username.value, password.value)">login</button>
+        <p class="message" >Not registered? <a class = "register" (click) = "checkRegistered()">Create an account</a></p>
+        <div *ngIf = "!verified">Invalid username or password!</div>
+        
+      </form>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <br>
+
+</body>
